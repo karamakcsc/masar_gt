@@ -102,7 +102,9 @@ app_license = "MIT"
 # 		"on_trash": "method"
 #	}
 # }
-
+doctype_js = {
+    "Project" : "custom/project/project.js"
+ }
 # Scheduled Tasks
 # ---------------
 
@@ -186,3 +188,17 @@ user_data_fields = [
 # Recommended only for DocTypes which have limited documents with untranslated names
 # For example: Role, Gender, etc.
 # translated_search_doctypes = []
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", [
+                "Project-column_break_21",
+        		"Project-revenue",
+        		"Project-wip_clients",
+        		"Project-unbilled_revenue",
+        		"Project-deferred_revenue",
+                "Project-account"
+            ]
+        ]
+    ]}
+]
