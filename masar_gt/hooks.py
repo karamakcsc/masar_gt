@@ -197,7 +197,8 @@ fixtures = [
         		"Project-wip_clients",
         		"Project-unbilled_revenue",
         		"Project-deferred_revenue",
-                "Project-account"
+                "Project-account",
+                "Journal Entry-project",
             ]
         ]
     ]}
