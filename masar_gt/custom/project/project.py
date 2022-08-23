@@ -147,7 +147,7 @@ def make_close_the_wip_account_journal_entry(company, wip_account, unbilled_reve
 			if submit:
 				jv.submit()
 
-		message = """<a href="#Form/Journal Entry/%s" target="_blank">%s</a>""" % (jv.name, jv.name)
+		message = """<a href="#Form/journal-entry/%s" target="_blank">%s</a>""" % (jv.name, jv.name)
 		msgprint(_("Journal Entry {0} created").format(comma_and(message)))
 		#message = _("Journal Entry {0} created").format(comma_and(message))
 

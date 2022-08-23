@@ -55,8 +55,8 @@ frappe.ui.form.on("Project", "refresh", function(frm) {
       if (frm.doc.unbilled_revenue == null || "" ) {
         frappe.msgprint("Please Set Unbilled Revenue Account")
         return}
-      
-      frappe.call({
+
+  frappe.call({
 		method: "masar_gt.custom.project.project.make_close_the_wip_account_journal_entry",
 		args: { company: frm.doc.company,
             wip_account: frm.doc.wip_clients,
@@ -65,4 +65,127 @@ frappe.ui.form.on("Project", "refresh", function(frm) {
 	         });
 
       }, __("Manage"));
+});
+
+frappe.ui.form.on('Project',  {
+    refresh: function(frm) {
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("revenue_balance",r.message)
+
+              }
+        });
+
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("revenue_balance",r.message)
+
+              }
+        });
+
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.deferred_revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("deferred_revenue_balance",r.message)
+
+              }
+        });
+
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.wip_clients,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("wip_clients_balance",r.message)
+
+              }
+        });
+
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.unbilled_revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("unbilled_revenue_balance",r.message)
+
+              }
+        });
+    }
+});
+
+
+frappe.ui.form.on('Project',  {
+    revenue: function(frm) {
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("revenue_balance",r.message)
+
+              }
+        });
+    },
+    deferred_revenue: function(frm) {
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("revenue_balance",r.message)
+
+              }
+        });
+    },
+    deferred_revenue: function(frm) {
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.deferred_revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("deferred_revenue_balance",r.message)
+
+              }
+        });
+    },
+    wip_clients: function(frm) {
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.wip_clients,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("wip_clients_balance",r.message)
+
+              }
+        });
+    },
+    unbilled_revenue: function(frm) {
+      frappe.call({
+      method: "masar_gt.custom.project.project.get_balance_on",
+      args: { company: frm.doc.company,
+              account: frm.doc.unbilled_revenue,
+              project: frm.doc.name},
+      callback: function(r) {
+              frm.set_value("unbilled_revenue_balance",r.message)
+
+              }
+        });
+    }
 });
