@@ -199,6 +199,10 @@ fixtures = [
         		"Project-deferred_revenue",
                 "Project-account",
                 "Journal Entry-project",
+                "Project-revenue_balance",
+                "Project-wip_clients_balance",
+                "Project-unbilled_revenue_balance",
+                "Project-deferred_revenue_balance",
             ]
         ]
     ]}
