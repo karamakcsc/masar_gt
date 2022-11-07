@@ -103,8 +103,7 @@ app_license = "MIT"
 #	}
 # }
 doctype_js = {
-    "Project" : "custom/project/project.js",
-    "Quotation" : "custom/Quotation/quotation.js",
+    "Quotation" : "custom/Quotation/quotation.js"
  }
 # Scheduled Tasks
 # ---------------
@@ -193,17 +192,6 @@ fixtures = [
     {"dt": "Custom Field", "filters": [
         [
             "name", "in", [
-                "Project-column_break_21",
-        		"Project-revenue",
-        		"Project-wip_clients",
-        		"Project-unbilled_revenue",
-        		"Project-deferred_revenue",
-                "Project-account",
-                "Journal Entry-project",
-                "Project-revenue_balance",
-                "Project-wip_clients_balance",
-                "Project-unbilled_revenue_balance",
-                "Project-deferred_revenue_balance",
                 "Quotation-quotation_documents",
                 "Quotation-quotation_document_template",
                 "Quotation-section_break_34",
